@@ -1,0 +1,198 @@
+---
+import HeaderLink from './HeaderLink.astro';
+---
+
+<section class="sidebar">
+	<header>
+		<!-- <h2><a href="/">{SITE_TITLE}</a></h2> -->
+		<img src="/assets/product/images/aba-logo.svg">
+		<div class="social-links">
+			<a href="https://linktr.ee/abductedbyai" target="_blank" rel="noopener noreferrer" title="Linktree"><i class="fa-solid fa-link" aria-hidden="true"></i></a>
+			<a href="https://www.threads.net/@abductedbyai" target="_blank" rel="noopener noreferrer" title="Threads"><i class="fa-brands fa-threads" aria-hidden="true"></i></a>
+			<a href="https://www.instagram.com/abductedbyai" target="_blank" rel="noopener noreferrer" title="Threads"><i class="fa-brands fa-instagram"></i></a>
+		</div>
+		<nav id="navMain">
+			<div class="internal-links">
+				<HeaderLink href="/">Home</HeaderLink>
+				<HeaderLink href="/about">Colophon</HeaderLink>
+				<div class="internal-links__collections">
+					<span>Collections:</span>
+					<HeaderLink href="/blog">All</HeaderLink>
+					<HeaderLink href="/blog/tag/illustration">Illustration</HeaderLink>
+					<HeaderLink href="/blog/tag/prompt">Prompts</HeaderLink>
+				</div>
+			</div>
+			<div class="nav-control"><a href="#" id="navMainControl" title="Navigation Menu"><i class="fa-regular fa-bars"></i></a></div>
+
+			<div class="wallets">
+				<div class="col-6"><img src="/Media/tips/btc.png" alt="BTC address"></div>
+				
+				<div class="col-6"><img src="/Media/tips/eth.png" alt="ETH address"></div>
+			</div>
+		</nav>
+	</header>
+</section>
+
+<style>
+	.sidebar {
+		display: flex;
+		flex-direction: column;
+		width: 20%;
+		height: auto;
+		/* margin: auto; */
+		background: rgb(16, 15, 15);
+
+		@media (max-width: 720px) {
+			width: 100%;
+		}
+	}
+
+	header {
+		margin: 0;
+		padding: 0 1em;
+		background: black;
+		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+
+		img {
+			padding-top: 1em;
+			width: 90%;
+			margin: 0 auto;
+		}
+
+		@media (max-width: 720px) {
+			width: 100%;
+			padding-bottom: 1em;
+
+			img {
+				width: 30%;
+			}
+		}
+	}
+	.social-links {
+		display: flex;
+		justify-content: center;
+		gap: 1em;
+		margin: 1em 0;
+
+		a {
+		text-decoration: none;
+		color: var(--base-white-3);
+		border-bottom: none;
+
+			&:hover {
+				color: var(--base-white);
+			}
+		
+			&::after {
+				display: none;
+			}
+		}
+	}
+	nav {
+
+		.internal-links {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+
+			a {
+				font-family: var(--set-font-mono);
+				padding: 0.25em 0.5em;
+				margin-bottom: 0.25em;
+				color: var(--base-white);
+				border-bottom: 4px solid transparent;
+				text-decoration: none;
+
+				&.active {
+					text-decoration: none;
+					border-bottom-color: var(--green-brand);
+				}
+			}
+		}
+
+		.internal-links__collections {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 1em;
+
+			span {
+				font-family: var(--set-font-mono);
+				color: var(--magenta-brand);
+				font-weight: 700;
+			}
+		}
+
+		@media (max-width: 720px) {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 70%;
+			background: black;
+			padding: 1em 0;
+			z-index: 200;
+
+			transform: translateX(-100%);
+			/* transform: scale(0.9); */
+			transition: all .2s ease-in;
+
+			&.active {
+				transform: translateX(0);
+			}
+		}
+
+		.wallets {
+			/* background: red; */
+			display: flex;
+			flex-direction: row;
+			padding: 1em;
+			gap: 1em;
+
+			img {
+				width: 100%;
+				margin: 0;
+				padding: 0;
+				display: block;
+				border: 0.2em solid white;
+				border-radius: 0.2em;
+			}
+		}
+	}
+
+	.nav-control {
+		display: none;
+		z-index: 300;
+
+		a {
+			color: var(--base-white);
+			text-decoration: none;
+			border-bottom: 0;
+			padding: 1em 1.5em; 
+
+			i {
+				font-size: 2em;
+			}
+		}
+
+		@media (max-width: 720px) {
+			display: block;
+			/* background: red; */
+			background: transparent;
+			position: absolute;
+			top: 0;
+			left: 100%;
+		}
+	}
+
+	/* @media (max-width: 720px) {
+		.social-links {
+			display: none;
+		}
+	} */
+</style>

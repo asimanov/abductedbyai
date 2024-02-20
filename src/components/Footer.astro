@@ -1,0 +1,42 @@
+---
+const today = new Date();
+---
+
+<footer>
+	<p>&copy; {today.getFullYear()} Anton Simanov. All rights reserved.</p>
+	<div class="social-links">
+		<a href="https://linktr.ee/abductedbyai" target="_blank" rel="noopener noreferrer" title="Linktree"><i class="fa-solid fa-link" aria-hidden="true"></i></a>
+		<a href="https://www.threads.net/@abductedbyai" target="_blank" rel="noopener noreferrer" title="Threads"><i class="fa-brands fa-threads" aria-hidden="true"></i></a>
+		<a href="https://www.instagram.com/abductedbyai" target="_blank" rel="noopener noreferrer" title="Threads"><i class="fa-brands fa-instagram"></i></a>
+	</div>
+</footer>
+<style>
+	footer {
+		padding: 0 1em 2em 1em;
+		background: var(--base-black-1);
+		color: var(--base-white-3);
+		text-align: center;
+		width: 100%;
+		font-family: var(--set-font-mono);
+	}
+	.social-links {
+		display: flex;
+		justify-content: center;
+		gap: 1em;
+		margin-top: 1em;
+
+		a {
+		text-decoration: none;
+		color: var(--base-white-3);
+		border-bottom: none;
+
+			&:hover {
+				color: var(--base-white);
+			}
+		
+			&::after {
+				display: none;
+			}
+		}
+	}
+</style>
