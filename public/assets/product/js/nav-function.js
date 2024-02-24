@@ -1,7 +1,3 @@
-document.addEventListener("click", function(event){
-    toggleNav();
-});
-
 // Selecting the elements
 const navMain = document.getElementById('navMain');
 const navMainControl = document.getElementById('navMainControl');
@@ -16,15 +12,26 @@ function toggleNav() {
     // Toggling the icon class
     if (navMain.classList.contains('active')) {
         icon.classList.remove('fa-bars');
-        icon.classList.add('fa-x');
+        icon.classList.add('fa-xmark'); // Updated to 'fa-xmark' for FontAwesome 5+
     } else {
-        icon.classList.remove('fa-x');
+        icon.classList.remove('fa-xmark'); // Updated to 'fa-xmark' for FontAwesome 5+
         icon.classList.add('fa-bars');
     }
 }
 
-// Adding the click event listener
+// Adding the click event listener to the navMainControl only
 navMainControl.addEventListener('click', function(event) {
     event.preventDefault(); // Prevents the default action of the link
-    // toggleNav();
+    toggleNav();
 });
+
+// Function to close the navigation if it's open and the click is outside the navMain
+function closeNavOnBodyClick(event) {
+    // Check if the navMain is active and the clicked target is not inside the navMain
+    if (navMain.classList.contains('active') && !navMain.contains(event.target) && event.target !== navMainControl) {
+        toggleNav(); // Close the nav
+    }
+}
+
+// Adding the click event listener to the body for mobile devices
+body.addEventListener('click', closeNavOnBodyClick);
